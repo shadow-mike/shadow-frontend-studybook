@@ -16,18 +16,27 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function (head) {
-  if (!head) return head;
-  // const hair = new ListNode('', head);
-  // return hair.next;
-  let p = head,
-    prev = null;
-  while (p) {
-    let next = p.next;
-    p.next = prev;
-    prev = p;
-    p = next;
-  }
-  return prev;
-};
+// 迭代
+// var reverseList = function (head) {
+//   if (!head) return head;
+//   let p = head,
+//     prev = null;
+//   while (p) {
+//     let next = p.next;
+//     p.next = prev;
+//     prev = p;
+//     p = next;
+//   }
+//   return prev;
+// };
+
+// 递归
+function reverseList(head) {
+  let cur = head;
+  if (!cur || !cur.next) return cur;
+  const last = reverseList(cur.next);
+  cur.next.next = cur;
+  cur.next = null;
+  return last;
+}
 // @lc code=end

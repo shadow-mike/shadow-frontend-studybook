@@ -17,29 +17,54 @@
  * @param {number} k
  * @return {ListNode}
  */
-var reverseKGroup = function(head, k) {
-    if (!head) return head;
-    let p = end = head;
-    for (let i = 0; i < k; i++) {
-        if (!end) return head; // 不满足k个节点，不反转直接返回头节点；
-        end = end.next;
-    }
-    const newHead = reverse(p, end);
-    // p指向的head变成了当前一组的尾节点，尾结点的next指向下一组头节点；
-    p.next = reverseKGroup(end, k); 
-    return newHead;
+// var reverseKGroup = function(head, k) {
+//     if (!head) return head;
+//     let p = end = head;
+//     for (let i = 0; i < k; i++) {
+//         if (!end) return head; // 不满足k个节点，不反转直接返回头节点；
+//         end = end.next;
+//     }
+//     const newHead = reverse(p, end);
+//     // p指向的head变成了当前一组的尾节点，尾结点的next指向下一组头节点；
+//     p.next = reverseKGroup(end, k);
+//     return newHead;
+// };
+
+// function reverse(head, end) {
+//     if (!head) return head;
+//     let prev = null, cur = head;
+//     while (cur !== end) { // end不反转
+//         let next = cur.next;
+//         cur.next = prev;
+//         prev = cur;
+//         cur = next;
+//     }
+//     return prev; // 返回新的头节点
+// }
+
+var reverseKGroup = function (head, k) {
+  if (!head) return head;
+  let end = head;
+  for (let i = 1; i < k; i++) {
+    if (!end.next) return head;
+    end = end.next;
+  }
+  const lastHead = reverseKGroup(end.next, k);
+  const newHead = reverse(head, end);
+  head.next = lastHead;
+  return newHead;
 };
 
 function reverse(head, end) {
-    if (!head) return head;
-    let prev = null, cur = head;
-    while (cur !== end) { // end不反转
-        let next = cur.next;
-        cur.next = prev;
-        prev = cur;
-        cur = next;
-    }
-    return prev; // 返回新的头节点
+  let prev = null,
+    cur = head;
+  const endNext = end.next;
+  while (cur !== endNext) {
+    const next = cur.next;
+    cur.next = prev;
+    prev = cur;
+    cur = next;
+  }
+  return prev;
 }
 // @lc code=end
-
