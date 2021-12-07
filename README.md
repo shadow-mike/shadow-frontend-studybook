@@ -3,6 +3,8 @@
 ## 日志
 - Phase00 leetcode算法练习
   - [leetcode homepage](https://leetcode-cn.com/u/mopeys/)
+  - 20211207
+    - 完成链表、队列题：[82](leetcode/82.删除排序链表中的重复元素-ii.js)、[860](leetcode/860.柠檬水找零.js)、[933](leetcode/933.最近的请求次数.js)；
   - 20211206
     - 复习·完成链表题：[19](leetcode/19.删除链表的倒数第-n-个结点.js)、[24](leetcode/24.两两交换链表中的节点.js)、[83](leetcode/83.删除排序链表中的重复元素.js)、[86](leetcode/86.分隔链表.js)、[138](leetcode/138.复制带随机指针的链表.js)；
   - 20211205
