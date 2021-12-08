@@ -3,6 +3,8 @@
 ## 日志
 - Phase00 leetcode算法练习
   - [leetcode homepage](https://leetcode-cn.com/u/mopeys/)
+  - 20211208
+    - 完成队列题：[622.设计循环队列](leetcode/622.设计循环队列.js)、[1670.设计前中后队列](leetcode/1670.设计前中后队列.js)
   - 20211207
     - 完成链表、队列题：[82](leetcode/82.删除排序链表中的重复元素-ii.js)、[860](leetcode/860.柠檬水找零.js)、[933](leetcode/933.最近的请求次数.js)；
   - 20211206
