@@ -1,8 +1,12 @@
 # shadow-frontend-studybook
 
+## 账户
+  - [leetcode homepage](https://leetcode-cn.com/u/mopeys/)
+
 ## 日志
 - Phase00 leetcode算法练习
-  - [leetcode homepage](https://leetcode-cn.com/u/mopeys/)
+  - 20211211
+    - 完成队列题“ [20.有效的括号](leetcode/20.有效的括号.js)、[859.亲密字符串](leetcode/859.亲密字符串.js)、[946.验证栈序列](leetcode/946.验证栈序列.js)、[1021.删除最外层的括号](leetcode/1021.删除最外层的括号.js)、
   - 20211209
     - 完成队列题：[682.棒球比赛](leetcode/682.棒球比赛.js)、[844.比较含退格的字符串](leetcode/844.比较含退格的字符串.js)、[969.煎饼排序](leetcode/969.煎饼排序.js)、[面试题 03.04. 化栈为队](leetcode/面试题03.04.化栈为队.js)
   - 20211208
