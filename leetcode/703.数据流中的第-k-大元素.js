@@ -1,3 +1,37 @@
+/*
+ * @lc app=leetcode.cn id=703 lang=javascript
+ *
+ * [703] 数据流中的第 K 大元素
+ */
+
+// @lc code=start
+/**
+ * @param {number} k
+ * @param {number[]} nums
+ */
+var KthLargest = function (k, nums) {
+  this.k = k;
+  this.hp = new Heap((x, y) => y > x); // 维护一个小顶堆
+  for (let i = 0; i < nums.length; i++) {
+    this.hp.push(nums[i]);
+  }
+  while (this.hp.size > k) {
+    this.hp.pop();
+  }
+};
+
+/**
+ * @param {number} val
+ * @return {number}
+ */
+KthLargest.prototype.add = function (val) {
+  this.hp.push(val);
+  if (this.hp.size > this.k) {
+    this.hp.pop();
+  }
+  return this.hp.peek();
+};
+
 class Heap {
   constructor(compareFn) {
     this.arr = [];
@@ -81,42 +115,9 @@ class Heap {
   }
 }
 
-var getLeastNumbers = function (arr, k) {
-  const result = [];
-  const hp = new Heap();
-  // 先推入前k个元素
-  for (let i = 0; i < k; i++) {
-    hp.push(arr[i]);
-  }
-  // 维护前k个最大元素
-  for (let i = k; i < arr.length; i++) {
-    console.log('hp', hp, arr[k], hp.peek());
-    if (arr[i] < hp.peek()) {
-      hp.pop();
-      hp.push(arr[i]);
-    }
-  }
-  console.log('hp', hp);
-  while (k--) {
-    result.push(hp.pop());
-  }
-  console.log(result);
-  return result;
-};
-getLeastNumbers([3, 1, 49, 9, 11, 2, 4], 4);
-
-// const h = new Heap();
-// h.push(1);
-// h.push(10);
-// h.push(8);
-// h.push(2);
-// h.push(3);
-// h.push(6);
-// h.push(4);
-// console.log(h);
-// h.pop()
-// console.log(h);
-// h.pop()
-// console.log(h);
-// h.pop()
-// console.log(h);
+/**
+ * Your KthLargest object will be instantiated and called as such:
+ * var obj = new KthLargest(k, nums)
+ * var param_1 = obj.add(val)
+ */
+// @lc code=end

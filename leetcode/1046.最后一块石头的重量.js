@@ -1,3 +1,27 @@
+/*
+ * @lc app=leetcode.cn id=1046 lang=javascript
+ *
+ * [1046] 最后一块石头的重量
+ */
+
+// @lc code=start
+/**
+ * @param {number[]} stones
+ * @return {number}
+ */
+var lastStoneWeight = function(stones) {
+    const hp = new Heap();
+    for (let i = 0; i < stones.length; i++) {
+        hp.push(stones[i]);
+    }
+    while (hp.size > 1) {
+        const diff = hp.pop() - hp.pop();
+        if (diff) hp.push(diff);
+    }
+    return hp.pop();
+
+};
+
 class Heap {
   constructor(compareFn) {
     this.arr = [];
@@ -80,43 +104,7 @@ class Heap {
     return null;
   }
 }
+  
+// @lc code=end
 
-var getLeastNumbers = function (arr, k) {
-  const result = [];
-  const hp = new Heap();
-  // 先推入前k个元素
-  for (let i = 0; i < k; i++) {
-    hp.push(arr[i]);
-  }
-  // 维护前k个最大元素
-  for (let i = k; i < arr.length; i++) {
-    console.log('hp', hp, arr[k], hp.peek());
-    if (arr[i] < hp.peek()) {
-      hp.pop();
-      hp.push(arr[i]);
-    }
-  }
-  console.log('hp', hp);
-  while (k--) {
-    result.push(hp.pop());
-  }
-  console.log(result);
-  return result;
-};
-getLeastNumbers([3, 1, 49, 9, 11, 2, 4], 4);
 
-// const h = new Heap();
-// h.push(1);
-// h.push(10);
-// h.push(8);
-// h.push(2);
-// h.push(3);
-// h.push(6);
-// h.push(4);
-// console.log(h);
-// h.pop()
-// console.log(h);
-// h.pop()
-// console.log(h);
-// h.pop()
-// console.log(h);
