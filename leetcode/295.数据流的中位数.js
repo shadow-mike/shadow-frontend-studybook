@@ -89,7 +89,7 @@ class Heap {
         let idx = i;
         while (idx > 0) {
             const parentIdx = (idx - 1) >>> 1;
-            if (this.compareFn(this.data[idx], this.data[parentIdx]) < 0) {
+            if (this.compareFn(this.data[parentIdx], this.data[idx]) > 0) {
                 this.swap(idx, parentIdx);
                 idx = parentIdx;
             } else {
